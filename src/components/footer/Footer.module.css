@@ -1,0 +1,25 @@
+.container {
+  box-sizing: border-box;
+  height: 60px;
+  background: #f1f1f1;
+  border-radius: 0px 0px 12px 12px;
+  display: flex;
+  padding: 12px;
+}
+
+.container > input {
+  flex-grow: 5;
+  border: none;
+  border-radius: 8px 0px 0px 8px;
+  outline: none;
+  padding: 0px 8px;
+}
+
+.container > button {
+  flex-grow: 1;
+  background-color: orange;
+  border-radius: 0px 8px 8px 0px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}

@@ -1,33 +1,22 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styles from './Todo.module.css';
 import { FaTrashAlt } from 'react-icons/fa';
-import { TodoListContext } from '../../contexts/TodoListContext';
 
-export default function Todo({ id }) {
-  const { todoList, setTodoList } = useContext(TodoListContext);
-  const todoIdx = todoList.findIndex((todo) => todo.id === id);
-  const handleCheck = () => {
-    setTodoList(
-      todoList.map((todo) =>
-        todo.id === id ? { ...todo, status: !todo.status } : todo
-      )
-    );
+export default function Todo({ todo, onUpdate, onDelete }) {
+  const handleCheck = (e) => {
+    onUpdate({ ...todo, status: e.target.checked });
   };
-  const handleRemove = () => {
-    setTodoList(todoList.filter((todo) => todo.id !== id));
+  const handleDelete = () => {
+    onDelete(todo);
   };
 
   return (
     <div className={styles.container}>
-      <input
-        type='checkbox'
-        checked={todoList[todoIdx].status}
-        onChange={handleCheck}
-      />
-      <span className={todoList[todoIdx].status ? styles.done : undefined}>
-        {todoList[todoIdx].title}
+      <input type='checkbox' checked={todo.status} onChange={handleCheck} />
+      <span className={todo.status ? styles.done : undefined}>
+        {todo.title}
       </span>
-      <FaTrashAlt onClick={handleRemove} />
+      <FaTrashAlt onClick={handleDelete} />
     </div>
   );
 }

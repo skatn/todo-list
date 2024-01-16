@@ -1,0 +1,11 @@
+.content {
+  height: 300px;
+  overflow-x: scroll;
+  overflow-x: hidden;
+  background: white;
+  padding: 8px;
+}
+
+.content::-webkit-scrollbar {
+  display: none;
+}

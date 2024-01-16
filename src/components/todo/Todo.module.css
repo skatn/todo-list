@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  padding: 4px;
+}
+
+.container > :nth-last-child(1) {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.done {
+  text-decoration-line: line-through;
+}

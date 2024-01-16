@@ -5,8 +5,17 @@ import Todo from '../todo/Todo';
 import { TabContext } from '../../contexts/TabContext';
 
 export default function Content() {
-  const { todoList } = useContext(TodoListContext);
+  const { todoList, setTodoList } = useContext(TodoListContext);
   const { tab } = useContext(TabContext);
+
+  const handleUpdate = (updated) => {
+    setTodoList(
+      todoList.map((todo) => (todo.id === updated.id ? updated : todo))
+    );
+  };
+  const handleDelete = (deleted) => {
+    setTodoList(todoList.filter((todo) => todo.id !== deleted.id));
+  };
 
   let showTodoList;
   switch (tab) {
@@ -24,7 +33,12 @@ export default function Content() {
   return (
     <div className={styles.content}>
       {showTodoList.map((todo) => (
-        <Todo key={todo.id} id={todo.id} />
+        <Todo
+          key={todo.id}
+          todo={todo}
+          onUpdate={handleUpdate}
+          onDelete={handleDelete}
+        />
       ))}
     </div>
   );

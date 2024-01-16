@@ -1,0 +1,24 @@
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  height: 60px;
+  padding: 0px 20px;
+  border-radius: 12px 12px 0px 0px;
+  border-bottom: 1px solid #dddddd;
+  background: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container span {
+  margin-left: 20px;
+  color: #ff8d1b;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.active {
+  color: #d87512;
+  border-bottom: 1px solid #b4b4b4;
+}

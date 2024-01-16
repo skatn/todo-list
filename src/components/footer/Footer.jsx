@@ -12,12 +12,12 @@ export default function Footer() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (todo.trim()) {
-      setTodoList((todoList) => [
-        ...todoList,
-        { id: uuid(), title: todo, status: false },
-      ]);
-    }
+    if (!todo.trim()) return;
+
+    setTodoList((todoList) => [
+      ...todoList,
+      { id: uuid(), title: todo, status: false },
+    ]);
 
     setTodo('');
   };
